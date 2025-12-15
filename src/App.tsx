@@ -391,14 +391,15 @@ function App() {
 
       <section className="contact-section scroll-animate" id="contact" ref={contactRef}>
         <div className="contact-inner">
-          <div className="contact-header">
-            <h2>Ready to get started?</h2>
-            <p className="contact-subtitle">
-              Have questions or want to schedule a cleaning? We'd love to hear from you. 
-              Fill out the form below or give us a call.
-            </p>
-          </div>
-          <div className="contact-content">
+          <div className="contact-glass-container">
+            <div className="contact-header">
+              <h2>Ready to get started?</h2>
+              <p className="contact-subtitle">
+                Have questions or want to schedule a cleaning? We'd love to hear from you. 
+                Fill out the form below or give us a call.
+              </p>
+            </div>
+            <div className="contact-content">
             <div className="contact-form-wrapper">
               <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
@@ -472,6 +473,7 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
