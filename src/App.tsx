@@ -55,7 +55,9 @@ const stats = [
   { value: '100%', label: 'Satisfaction guarantee', detail: 'We make it right if something isn\'t perfect' },
 ]
 
-const logoAsset = '/House with circle and leaf.png' as const
+const logoAssetWhite = '/S&C Horiz White.png' as const
+const logoAssetBlue = '/S&C Horiz Blue.png' as const
+const logoIcon = '/House with circle and leaf.png' as const
 const heroImage = '/Hero.jpg' as const
 const bioImage = '/Andie.jpeg' as const
 
@@ -160,12 +162,7 @@ function App() {
     <div className="site-shell">
       <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''} ${isMobileMenuOpen ? 'nav-mobile-open' : ''}`}>
         <div className="logo">
-          <img src={logoAsset} alt="SimpleClean logo" loading="lazy" />
-          <div className="logo-text">
-            <span>Simple</span>
-            <span>&</span>
-            <strong>Clean</strong>
-          </div>
+          <img src={isScrolled ? logoAssetBlue : logoAssetWhite} alt="SimpleClean logo" loading="lazy" />
         </div>
         <button 
           className="hamburger"
@@ -458,12 +455,7 @@ function App() {
         <div className="footer-content">
           <div className="footer-brand">
             <div className="logo">
-              <img src={logoAsset} alt="SimpleClean logo" loading="lazy" />
-              <div className="logo-text">
-                <span>Simple</span>
-                <span>&</span>
-                <strong>Clean</strong>
-              </div>
+              <img src={logoIcon} alt="SimpleClean logo" loading="lazy" />
             </div>
             <p className="footer-tagline">Polished homes, peaceful routines.</p>
           </div>
