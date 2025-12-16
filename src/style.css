@@ -570,8 +570,13 @@ h1, h2, h3, h4, h5, h6 {
   background: white;
 }
 
+.section-about > * {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .about-wrapper {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -581,7 +586,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image {
   width: 100%;
-  max-width: 500px;
+  max-width: clamp(320px, 32vw, 440px);
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
@@ -1158,6 +1163,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
 }
 
+@media (max-width: 1300px) {
+  .about-image {
+    max-width: clamp(280px, 36vw, 360px);
+    min-width: 280px;
+  }
+}
+
 @media (max-width: 900px) {
   .contact-content {
     grid-template-columns: 1fr;
@@ -1498,7 +1510,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .about-image {
-    max-width: 100%;
+    width: 100%;
+    max-width: clamp(300px, 40vw, 400px);
+    min-width: 300px;
     margin: 0 auto;
   }
 
