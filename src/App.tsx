@@ -12,12 +12,6 @@ type ProcessStep = {
   copy: string
 }
 
-type Testimonial = {
-  quote: string
-  name: string
-  detail: string
-}
-
 const services: Service[] = [
   {
     name: 'Signature Reset',
@@ -51,24 +45,6 @@ const process: ProcessStep[] = [
   {
     title: 'You enjoy your clean home',
     copy: 'Come home to a spotless space. We\'re always here if you need us again or have any questions.',
-  },
-]
-
-const testimonials: Testimonial[] = [
-  {
-    quote: '“There’s always a calm after they leave — the beds feel hotel crisp and the place smells like eucalyptus.”',
-    name: 'Kaia M.',
-    detail: 'Interior designer & mom of 2',
-  },
-  {
-    quote: '“They keep my condo listing-ready. The client portal lets me add-on appliance detailing during board meetings.”',
-    name: 'Marcus L.',
-    detail: 'Startup founder',
-  },
-  {
-    quote: '“SimpleClean handled our move-in while we were still in the hospital with the baby. Unreal.”',
-    name: 'Priya S.',
-    detail: 'First-time parent',
   },
 ]
 
