@@ -12,6 +12,12 @@ type ProcessStep = {
   copy: string
 }
 
+type Testimonial = {
+  name: string
+  location: string
+  quote: string
+}
+
 const services: Service[] = [
   {
     name: 'Signature Reset',
@@ -53,6 +59,24 @@ const stats = [
   { value: 'Same', label: 'Consistent teams', detail: 'Same trusted cleaner every visit' },
   { value: '50+', label: 'Happy families', detail: 'Trusted by families across the metro area' },
   { value: '100%', label: 'Satisfaction guarantee', detail: 'We make it right if something isn\'t perfect' },
+]
+
+const testimonials: Testimonial[] = [
+  {
+    name: 'Sarah M.',
+    location: 'Redding, CA',
+    quote: 'Andie and her team have been cleaning our home for over a year now. We love seeing the same friendly faces, and knowing our kids and dog are safe around the products they use. It\'s one less thing to worry about.',
+  },
+  {
+    name: 'Michael & Jennifer T.',
+    location: 'Shasta Lake, CA',
+    quote: 'We\'ve tried other cleaning services before, but Simple & Clean is different. They actually listen to what we need and follow through every time. The communication is fantastic—we never feel left in the dark.',
+  },
+  {
+    name: 'Rachel K.',
+    location: 'Anderson, CA',
+    quote: 'As a busy mom of three, having Simple & Clean come weekly has been a game changer. They treat our home with such care and respect. I can\'t recommend them enough to other families.',
+  },
 ]
 
 const logoAssetWhite = '/S&C Horiz White.png' as const
@@ -109,6 +133,7 @@ function App() {
   const servicesRef = useScrollAnimation<HTMLElement>()
   const processRef = useScrollAnimation<HTMLDivElement>()
   const guaranteeRef = useScrollAnimation<HTMLElement>()
+  const testimonialsRef = useScrollAnimation<HTMLElement>()
   const contactRef = useScrollAnimation<HTMLElement>()
 
   useEffect(() => {
@@ -178,7 +203,7 @@ function App() {
           <a href="#about" onClick={handleNavLinkClick}>About</a>
           <a href="#services" onClick={handleNavLinkClick}>Services</a>
           <a href="#process" onClick={handleNavLinkClick}>Process</a>
-          <a href="#guarantee" onClick={handleNavLinkClick}>Guarantee</a>
+          <a href="#testimonials" onClick={handleNavLinkClick}>Reviews</a>
           <a href="#contact" onClick={handleNavLinkClick}>Contact</a>
           <a className="nav-call" href="tel:+15551234567" onClick={handleNavLinkClick}>
             (555) 123-4567
@@ -333,7 +358,7 @@ function App() {
               If something isn't right after a cleaning, we want to know. We're here to make it right—not because we have to, but because your peace of mind matters to us. We're building relationships, not just doing one-time cleanings.
             </p>
             <p className="commitment-intro">
-              When you trust us with your home, especially when you're not there, we take that seriously. We're responsive, we listen, and we follow through. That's how we've built trust with families over the years.
+              When you trust us with your home, especially when you're not there, we take that seriously. We're responsive, we listen, and we follow through. That's how we've built trust with families.
             </p>
           </div>
           <div className="commitment-features">
@@ -358,6 +383,30 @@ function App() {
                 <p>We treat your space like we'd want ours treated.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-testimonials scroll-animate" id="testimonials" ref={testimonialsRef}>
+        <div className="testimonials-wrapper">
+          <div className="testimonials-header">
+            <p className="eyebrow">Kind words from families</p>
+            <h2>What our clients are saying</h2>
+            <p className="testimonials-intro">
+              Here's what a few of our clients have shared with us.
+            </p>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial) => (
+              <article key={testimonial.name} className="testimonial-card">
+                <div className="testimonial-quote-mark">"</div>
+                <p className="testimonial-quote">{testimonial.quote}</p>
+                <div className="testimonial-meta">
+                  <strong className="testimonial-name">{testimonial.name}</strong>
+                  <span className="testimonial-location">{testimonial.location}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -466,7 +515,7 @@ function App() {
                 <a href="#about" className="footer-nav-link">About</a>
                 <a href="#services" className="footer-nav-link">Services</a>
                 <a href="#process" className="footer-nav-link">Process</a>
-                <a href="#guarantee" className="footer-nav-link">Guarantee</a>
+                <a href="#testimonials" className="footer-nav-link">Reviews</a>
                 <a href="#contact" className="footer-nav-link">Contact</a>
               </nav>
             </div>
