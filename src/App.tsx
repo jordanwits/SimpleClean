@@ -21,20 +21,23 @@ type Testimonial = {
 const services: Service[] = [
   {
     name: 'Signature Reset',
-    headline: 'Weekly shine with concierge notes',
-    description: 'Our most popular plan — a two-person crew keeps living zones photo-ready with fragrance cues and clutter control.',
+    headline: 'Weekly or bi-weekly upkeep',
+    description:
+      'Our regular visit that keeps your main rooms picked up, wiped down, and feeling calm between deeper cleans.',
     list: ['Kitchen + bath sanitizing', 'Hotel fold laundry session', 'Smart home dust + polish', 'Scent + mood reset'],
   },
   {
     name: 'Deep Detox',
-    headline: 'Quarterly detailing & appliance love',
-    description: 'Grout brightening, vent extraction, and inside-appliance treatments bring a fresh-start energy to every room.',
+    headline: 'Detailed deep clean',
+    description:
+      'A slower, more detailed clean for the spots that get skipped on busy days—baseboards, appliances, corners, and built-up dust.',
     list: ['Baseboard + trim detailing', 'Inside fridge + oven cleanse', 'High dust + vents reset', 'Mineral-free shower glass'],
   },
   {
     name: 'Move-In Serenity',
-    headline: 'Whole-home turnover before keys arrive',
-    description: 'For move-ins, listings, or post-reno pulses — team leads stage linens, style beds, and leave a welcome basket.',
+    headline: 'Move-in / move-out clean',
+    description:
+      "For when you're moving in, moving out, or getting ready to list. We scrub the empty spaces so they feel ready for the next chapter.",
     list: ['Wall-to-wall dust extraction', 'Floor reconditioning pass', 'Cabinet + closet wipeout', 'Handwritten entry note'],
   },
 ]
@@ -42,15 +45,15 @@ const services: Service[] = [
 const process: ProcessStep[] = [
   {
     title: 'We chat about your needs',
-    copy: 'Give us a call and tell us about your home. We\'ll discuss what you need and provide a free, honest quote.',
+    copy: "Call or message us and tell us a bit about your home and routines. We'll talk through options and give you clear pricing before anything is booked.",
   },
   {
     title: 'Our team arrives',
-    copy: 'Our friendly, background-checked cleaners arrive with all supplies and get to work making your home shine.',
+    copy: "Your cleaner shows up on time with supplies and a simple plan, then quietly works through the list you've agreed on.",
   },
   {
     title: 'You enjoy your clean home',
-    copy: 'Come home to a spotless space. We\'re always here if you need us again or have any questions.',
+    copy: "You come back to a home that feels lighter. If we ever miss something, just tell us and we'll make it right or adjust for next time.",
   },
 ]
 
@@ -251,10 +254,10 @@ function App() {
             <h2>A family business built on trust</h2>
             <div className="about-text">
               <p>
-                Andie & Devon started Simple & Clean because they wanted cleaning done differently—with care, consistency, and products that are safe for families. As parents themselves, they understand what it means to trust someone in your home.
+                Simple &amp; Clean started the way a lot of good things do — with a few neighbors who needed help and kept telling their friends. Andie and Devon saw how much calmer a home could feel when someone you trust takes the cleaning off your plate.
               </p>
               <p>
-                That's why every detail matters, from the products we use to the people we send to your door. Devon handles scheduling and communication behind the scenes, while Andie leads our cleaning teams, ensuring your experience is seamless every time.
+                These days Andie is the one you&apos;ll see with the team, paying attention to the little things you mention in passing. Devon keeps the schedule and messages organized so you always know who&apos;s coming and when. It still feels small and personal on purpose.
               </p>
             </div>
           </div>
@@ -265,9 +268,9 @@ function App() {
         <div className="why-wrapper">
           <div className="why-header">
             <p className="eyebrow">Why choose us</p>
-            <h2>Why families trust us with their homes</h2>
+            <h2>Why people keep us around</h2>
             <p className="why-intro">
-              We built Simple & Clean around what matters: your peace of mind, your family's health, and the trust that comes from consistency.
+              Simple &amp; Clean has grown mostly through word of mouth. Folks stay with us because it&apos;s easy to work together and they feel good about who&apos;s in their home.
             </p>
           </div>
           <div className="why-features">
@@ -275,21 +278,21 @@ function App() {
               <div className="why-feature-icon">✓</div>
               <div className="why-feature-content">
                 <h3>Safe for everyone</h3>
-                <p>We use non-toxic cleaning products that are safe for your kids, pets, and our cleaning team. No harsh chemicals, no strong fumes, just effective cleaning you can feel good about.</p>
+                <p>We stick to non-toxic products that are gentle on surfaces and safe around kids, pets, and our team.</p>
               </div>
             </div>
             <div className="why-feature">
               <div className="why-feature-icon">✓</div>
               <div className="why-feature-content">
                 <h3>Same trusted cleaner every time</h3>
-                <p>You'll see the same familiar face at each cleaning. This builds trust, helps us learn your preferences, and means you can relax knowing who's in your home.</p>
+                <p>You get the same cleaner most visits, so we actually learn how you like things done and you always know who&apos;s coming over.</p>
               </div>
             </div>
             <div className="why-feature">
               <div className="why-feature-icon">✓</div>
               <div className="why-feature-content">
                 <h3>We show up, and we respond</h3>
-                <p>Reliable scheduling you can count on. When you need us or have questions, we respond quickly—usually within a few hours, not days.</p>
+                <p>If you call or text, you hear back from us. If we&apos;re running behind or need to adjust something, we&apos;ll let you know instead of leaving you guessing.</p>
               </div>
             </div>
           </div>
@@ -326,7 +329,7 @@ function App() {
               A Simple Process, <span className="highlight">Start to Finish</span>
             </h2>
             <p className="process-subtitle">
-              We've taken the stress out of finding reliable cleaning. Here's exactly what you can expect when you work with Simple & Clean:
+              Reaching out is easy. Here&apos;s what working with Simple &amp; Clean usually looks like:
             </p>
           </div>
           <div className="process-steps">
@@ -355,10 +358,10 @@ function App() {
           </div>
           <div className="commitment-content">
             <p className="commitment-intro">
-              If something isn't right after a cleaning, we want to know. We're here to make it right—not because we have to, but because your peace of mind matters to us. We're building relationships, not just doing one-time cleanings.
+              If we miss a spot or something doesn&apos;t feel right after a visit, we genuinely want to hear about it. We&apos;ll come back to fix it or talk through what needs to change next time.
             </p>
             <p className="commitment-intro">
-              When you trust us with your home, especially when you're not there, we take that seriously. We're responsive, we listen, and we follow through. That's how we've built trust with families.
+              Letting someone into your home is a big deal. We show up when we say we will, communicate clearly, and follow through—that&apos;s how we&apos;ve slowly built up a group of regulars who stick with us.
             </p>
           </div>
           <div className="commitment-features">
@@ -393,7 +396,7 @@ function App() {
             <p className="eyebrow">Kind words from families</p>
             <h2>What our clients are saying</h2>
             <p className="testimonials-intro">
-              Here's what a few of our clients have shared with us.
+              A few notes people have sent after their cleans.
             </p>
           </div>
           <div className="testimonials-grid">
@@ -417,8 +420,7 @@ function App() {
             <div className="contact-header">
               <h2>Ready to get started?</h2>
               <p className="contact-subtitle">
-                Have questions or want to schedule a cleaning? We'd love to hear from you. 
-                Fill out the form below or give us a call.
+                Have a question or want to check availability? Send a note here or give us a call and we&apos;ll get back to you soon.
               </p>
             </div>
             <div className="contact-content">
