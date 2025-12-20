@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.32);
   padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 4vw, 4rem) clamp(2rem, 4vw, 3rem);
   padding-top: calc(var(--nav-offset) + clamp(1.5rem, 3vw, 2.5rem));
   display: flex;
