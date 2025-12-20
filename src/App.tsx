@@ -1,11 +1,12 @@
 import { useMemo, useState, useEffect, useRef } from 'react'
 
-type Service = {
-  name: string
-  headline: string
-  description: string
-  list: string[]
-}
+// Services section temporarily removed
+// type Service = {
+//   name: string
+//   headline: string
+//   description: string
+//   list: string[]
+// }
 
 type ProcessStep = {
   title: string
@@ -18,34 +19,35 @@ type Testimonial = {
   quote: string
 }
 
-const services: Service[] = [
-  {
-    name: 'Signature Reset',
-    headline: 'Weekly or bi-weekly upkeep',
-    description:
-      'Our regular visit that keeps your main rooms picked up, wiped down, and feeling calm between deeper cleans.',
-    list: ['Kitchen + bath sanitizing', 'Hotel fold laundry session', 'Smart home dust + polish', 'Scent + mood reset'],
-  },
-  {
-    name: 'Deep Detox',
-    headline: 'Detailed deep clean',
-    description:
-      'A slower, more detailed clean for the spots that get skipped on busy days—baseboards, appliances, corners, and built-up dust.',
-    list: ['Baseboard + trim detailing', 'Inside fridge + oven cleanse', 'High dust + vents reset', 'Mineral-free shower glass'],
-  },
-  {
-    name: 'Move-In Serenity',
-    headline: 'Move-in / move-out clean',
-    description:
-      "For when you're moving in, moving out, or getting ready to list. We scrub the empty spaces so they feel ready for the next chapter.",
-    list: ['Wall-to-wall dust extraction', 'Floor reconditioning pass', 'Cabinet + closet wipeout', 'Handwritten entry note'],
-  },
-]
+// Services section temporarily removed
+// const services: Service[] = [
+//   {
+//     name: 'Signature Reset',
+//     headline: 'Weekly or bi-weekly upkeep',
+//     description:
+//       'Our regular visit that keeps your main rooms picked up, wiped down, and feeling calm between deeper cleans.',
+//     list: ['Kitchen + bath sanitizing', 'Hotel fold laundry session', 'Smart home dust + polish', 'Scent + mood reset'],
+//   },
+//   {
+//     name: 'Deep Detox',
+//     headline: 'Detailed deep clean',
+//     description:
+//       'A slower, more detailed clean for the spots that get skipped on busy days—baseboards, appliances, corners, and built-up dust.',
+//     list: ['Baseboard + trim detailing', 'Inside fridge + oven cleanse', 'High dust + vents reset', 'Mineral-free shower glass'],
+//   },
+//   {
+//     name: 'Move-In Serenity',
+//     headline: 'Move-in / move-out clean',
+//     description:
+//       "For when you're moving in, moving out, or getting ready to list. We scrub the empty spaces so they feel ready for the next chapter.",
+//     list: ['Wall-to-wall dust extraction', 'Floor reconditioning pass', 'Cabinet + closet wipeout', 'Handwritten entry note'],
+//   },
+// ]
 
 const process: ProcessStep[] = [
   {
     title: 'We chat about your needs',
-    copy: "Call or message us and tell us a bit about your home and routines. We'll talk through options and give you clear pricing before anything is booked.",
+    copy: "Call or message us and tell us a bit about your home and routines. We schedule a quote, and Andie shows up to give you a clear price before anything is booked.",
   },
   {
     title: 'Our team arrives',
@@ -60,7 +62,7 @@ const process: ProcessStep[] = [
 const stats = [
   { value: 'Safe', label: 'Non-toxic products', detail: 'Safe for kids, pets, and our team' },
   { value: 'Same', label: 'Consistent teams', detail: 'Same trusted cleaner every visit' },
-  { value: '50+', label: 'Happy families', detail: 'Trusted by families across the metro area' },
+  { value: '30+', label: 'Happy families', detail: 'Trusted by families across the metro area' },
   { value: '100%', label: 'Satisfaction guarantee', detail: 'We make it right if something isn\'t perfect' },
 ]
 
@@ -86,7 +88,7 @@ const logoAssetWhite = '/S&C Horiz White.png' as const
 const logoAssetBlue = '/S&C Horiz Blue.png' as const
 const logoIcon = '/House with circle and leaf.png' as const
 const heroImage = '/Hero.jpg' as const
-const bioImage = '/Andie.jpeg' as const
+const bioImage = '/AndieDevon.jpg' as const
 
 // Custom hook for scroll animations
 function useScrollAnimation<T extends HTMLElement = HTMLElement>() {
@@ -133,7 +135,6 @@ function App() {
   const statBandRef = useScrollAnimation<HTMLElement>()
   const splitSectionRef = useScrollAnimation<HTMLElement>()
   const whySectionRef = useScrollAnimation<HTMLElement>()
-  const servicesRef = useScrollAnimation<HTMLElement>()
   const processRef = useScrollAnimation<HTMLDivElement>()
   const guaranteeRef = useScrollAnimation<HTMLElement>()
   const testimonialsRef = useScrollAnimation<HTMLElement>()
@@ -204,12 +205,12 @@ function App() {
         </button>
         <div className={`nav-links ${isMobileMenuOpen ? 'nav-links-open' : ''}`}>
           <a href="#about" onClick={handleNavLinkClick}>About</a>
-          <a href="#services" onClick={handleNavLinkClick}>Services</a>
           <a href="#process" onClick={handleNavLinkClick}>Process</a>
+          <a href="#guarantee" onClick={handleNavLinkClick}>Guarantee</a>
           <a href="#testimonials" onClick={handleNavLinkClick}>Reviews</a>
           <a href="#contact" onClick={handleNavLinkClick}>Contact</a>
-          <a className="nav-call" href="tel:+15551234567" onClick={handleNavLinkClick}>
-            (555) 123-4567
+          <a className="nav-call" href="tel:+12173729790" onClick={handleNavLinkClick}>
+            (217) 372-9790
           </a>
           <button className="primary-btn" onClick={handleNavLinkClick}>Book A Clean</button>
         </div>
@@ -247,7 +248,7 @@ function App() {
       <section className="section-about scroll-animate" id="about" ref={splitSectionRef}>
         <div className="about-wrapper">
           <div className="about-image">
-            <img src={bioImage} alt="Andie from SimpleClean" loading="lazy" />
+            <img src={bioImage} alt="Andie and Devon from SimpleClean" loading="lazy" />
           </div>
           <div className="about-content">
             <p className="eyebrow">About us</p>
@@ -257,7 +258,7 @@ function App() {
                 Simple &amp; Clean started the way a lot of good things do — with a few neighbors who needed help and kept telling their friends. Andie and Devon saw how much calmer a home could feel when someone you trust takes the cleaning off your plate.
               </p>
               <p>
-                These days Andie is the one you&apos;ll see with the team, paying attention to the little things you mention in passing. Devon keeps the schedule and messages organized so you always know who&apos;s coming and when. It still feels small and personal on purpose.
+                Andie is the one you&apos;ll see with the team, paying attention to the little things you mention in passing. She communicates with you and makes sure everything is up to your standard. Devon keeps the schedule and books organized so you always know who&apos;s coming and when. It still feels small and personal on purpose.
               </p>
             </div>
           </div>
@@ -270,7 +271,7 @@ function App() {
             <p className="eyebrow">Why choose us</p>
             <h2>Why people keep us around</h2>
             <p className="why-intro">
-              Simple &amp; Clean has grown mostly through word of mouth. Folks stay with us because it&apos;s easy to work together and they feel good about who&apos;s in their home.
+              Simple &amp; Clean has grown mostly through word of mouth. Folks stay with us because we are easy to reach and they trust who is inside their home.
             </p>
           </div>
           <div className="why-features">
@@ -285,7 +286,7 @@ function App() {
               <div className="why-feature-icon">✓</div>
               <div className="why-feature-content">
                 <h3>Same trusted cleaner every time</h3>
-                <p>You get the same cleaner most visits, so we actually learn how you like things done and you always know who&apos;s coming over.</p>
+                <p>You get the same cleaner most visits, so we actually learn how you like things done and you build a relationship with the person that cleans for you.</p>
               </div>
             </div>
             <div className="why-feature">
@@ -299,28 +300,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section-wide service-panels scroll-animate" id="services" ref={servicesRef}>
-        <div className="section-heading">
-          <p className="eyebrow">Services</p>
-          <h2>Cleaning plans that fit your life</h2>
-        </div>
-        <div className="panel-grid">
-          {services.map((service) => (
-            <article key={service.name} className="panel-card">
-              <div className="panel-top">
-                <span>{service.name}</span>
-                <h3>{service.headline}</h3>
-              </div>
-              <ul>
-                {service.list.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <button className="ghost-btn">Learn More</button>
-            </article>
-          ))}
-        </div>
-      </section>
+      {/* Services section temporarily removed */}
 
       <section className="section-wide process-section" id="process">
         <div className="process-section-inner scroll-animate" ref={processRef}>
@@ -345,7 +325,7 @@ function App() {
           </div>
           <div className="process-cta">
             <button className="primary-btn">Get Started Today</button>
-            <p className="process-note">Most quotes provided within a few hours</p>
+            <p className="process-note">We will contact you within a few hours</p>
           </div>
         </div>
       </section>
@@ -358,10 +338,10 @@ function App() {
           </div>
           <div className="commitment-content">
             <p className="commitment-intro">
-              If we miss a spot or something doesn&apos;t feel right after a visit, we genuinely want to hear about it. We&apos;ll come back to fix it or talk through what needs to change next time.
+              If we miss a spot or something doesn&apos;t feel right after a visit, we genuinely want to hear about it. Call or message us to talk through possible solutions and what needs to change next time.
             </p>
             <p className="commitment-intro">
-              Letting someone into your home is a big deal. We show up when we say we will, communicate clearly, and follow through—that&apos;s how we&apos;ve slowly built up a group of regulars who stick with us.
+              Letting someone into your home is a big deal. We show up on time, communicate clearly, and follow through—that&apos;s how we&apos;ve slowly built up a group of regulars who stick with us.
             </p>
           </div>
           <div className="commitment-features">
@@ -436,7 +416,7 @@ function App() {
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+                  <input type="tel" id="phone" name="phone" placeholder="(217) 372-9790" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
@@ -454,7 +434,7 @@ function App() {
                 </div>
                 <div className="contact-details">
                   <strong>Email</strong>
-                  <a href="mailto:hello@simpleclean.com">hello@simpleclean.com</a>
+                  <a href="mailto:simpleandclean.king@gmail.com">simpleandclean.king@gmail.com</a>
                 </div>
               </div>
               <div className="contact-card">
@@ -465,7 +445,7 @@ function App() {
                 </div>
                 <div className="contact-details">
                   <strong>Phone</strong>
-                  <a href="tel:+15551234567">(555) 123-4567</a>
+                  <a href="tel:+12173729790">(217) 372-9790</a>
                 </div>
               </div>
               <div className="contact-card">
@@ -488,11 +468,7 @@ function App() {
                   </div>
                   <div className="hours-item">
                     <span>Saturday</span>
-                    <span>9:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="hours-item">
-                    <span>Sunday</span>
-                    <span>Closed</span>
+                    <span>9:00 AM - 2:00 PM</span>
                   </div>
                 </div>
               </div>
@@ -515,20 +491,20 @@ function App() {
               <strong>Navigation</strong>
               <nav className="footer-nav-links">
                 <a href="#about" className="footer-nav-link">About</a>
-                <a href="#services" className="footer-nav-link">Services</a>
                 <a href="#process" className="footer-nav-link">Process</a>
+                <a href="#guarantee" className="footer-nav-link">Guarantee</a>
                 <a href="#testimonials" className="footer-nav-link">Reviews</a>
                 <a href="#contact" className="footer-nav-link">Contact</a>
               </nav>
             </div>
             <div className="footer-contact">
-              <a href="mailto:hello@simpleclean.com" className="footer-link">
+              <a href="mailto:simpleandclean.king@gmail.com" className="footer-link">
                 <strong>Email</strong>
-                <span>hello@simpleclean.com</span>
+                <span>simpleandclean.king@gmail.com</span>
               </a>
-              <a href="tel:+15551234567" className="footer-link">
+              <a href="tel:+12173729790" className="footer-link">
                 <strong>Phone</strong>
-                <span>(555) 123-4567</span>
+                <span>(217) 372-9790</span>
               </a>
             </div>
           </div>
