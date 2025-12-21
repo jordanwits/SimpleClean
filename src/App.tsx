@@ -510,7 +510,7 @@ function App() {
           </div>
         </div>
         <div className="footer-bottom">
-          <small>© {currentYear} SimpleClean. All rights reserved.</small>
+          <small>© {currentYear} Simple & Clean LLC. All rights reserved.</small>
         </div>
       </footer>
     </div>
