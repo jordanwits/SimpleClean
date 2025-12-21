@@ -129,6 +129,8 @@ function App() {
   const currentYear = useMemo(() => new Date().getFullYear(), [])
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   // Refs for scroll animations
   const heroContentRef = useScrollAnimation<HTMLDivElement>()
@@ -187,6 +189,39 @@ function App() {
     setIsMobileMenuOpen(false)
   }
 
+  // Handle contact form submission
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitStatus('success')
+        form.reset()
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      } else {
+        setSubmitStatus('error')
+        setTimeout(() => setSubmitStatus('idle'), 5000)
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <div className="site-shell">
       <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''} ${isMobileMenuOpen ? 'nav-mobile-open' : ''}`}>
@@ -212,7 +247,7 @@ function App() {
           <a className="nav-call" href="tel:+12173729790" onClick={handleNavLinkClick}>
             (217) 372-9790
           </a>
-          <button className="primary-btn" onClick={handleNavLinkClick}>Book A Clean</button>
+          <a href="#contact" className="primary-btn" onClick={handleNavLinkClick} style={{textDecoration: 'none', display: 'inline-block'}}>Book A Clean</a>
         </div>
       </nav>
       <header className="hero-full" style={{ backgroundImage: `url(${heroImage})` }}>
@@ -228,8 +263,8 @@ function App() {
               Using only non-toxic products that are safe for your family, we focus on the details that make your space feel truly cared for.
             </p>
             <div className="hero-actions">
-              <button className="primary-btn">Get A Free Quote</button>
-              <button className="ghost-btn">Call Us Today</button>
+              <a href="#contact" className="primary-btn" style={{textDecoration: 'none', display: 'inline-block'}}>Get A Free Quote</a>
+              <a href="tel:+12173729790" className="ghost-btn" style={{textDecoration: 'none', display: 'inline-block'}}>Call Us Today</a>
             </div>
           </div>
         </div>
@@ -324,7 +359,7 @@ function App() {
             ))}
           </div>
           <div className="process-cta">
-            <button className="primary-btn">Get Started Today</button>
+            <a href="#contact" className="primary-btn" style={{textDecoration: 'none', display: 'inline-block'}}>Get Started Today</a>
             <p className="process-note">We will contact you within a few hours</p>
           </div>
         </div>
@@ -405,24 +440,38 @@ function App() {
             </div>
             <div className="contact-content">
             <div className="contact-form-wrapper">
-              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <form className="contact-form" onSubmit={handleFormSubmit}>
+                <input type="hidden" name="access_key" value="7a604d90-8eeb-46a0-8d8a-99818f3da434" />
+                <input type="hidden" name="subject" value="New Contact Form Submission from Simple & Clean" />
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your name" required />
+                  <input type="text" id="name" name="name" placeholder="Your name" required disabled={isSubmitting} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+                  <input type="email" id="email" name="email" placeholder="your.email@example.com" required disabled={isSubmitting} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="(217) 372-9790" />
+                  <input type="tel" id="phone" name="phone" placeholder="(217) 372-9790" disabled={isSubmitting} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" rows={5} placeholder="Tell us about your cleaning needs..." required></textarea>
+                  <textarea id="message" name="message" rows={5} placeholder="Tell us about your cleaning needs..." required disabled={isSubmitting}></textarea>
                 </div>
-                <button type="submit" className="primary-btn">Send Message</button>
+                {submitStatus === 'success' && (
+                  <div style={{ padding: '1rem', background: 'rgba(110, 185, 46, 0.1)', borderRadius: '12px', marginBottom: '1rem', color: 'var(--green-dark)', fontWeight: 600 }}>
+                    Thank you! Your message has been sent. We'll get back to you soon.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px', marginBottom: '1rem', color: '#dc2626', fontWeight: 600 }}>
+                    Something went wrong. Please try again or call us directly.
+                  </div>
+                )}
+                <button type="submit" className="primary-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             </div>
             <div className="contact-info">
