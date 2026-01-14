@@ -84,7 +84,6 @@ const testimonials: Testimonial[] = [
   },
 ]
 
-const logoAssetWhite = '/S&C Horiz White.png' as const
 const logoAssetBlue = '/S&C Horiz Blue.png' as const
 const logoAssetWhiteTxtBlueLogo = '/S&C Horiz White txt Blue Logo.png' as const
 const logoIcon = '/House with circle and leaf.png' as const
