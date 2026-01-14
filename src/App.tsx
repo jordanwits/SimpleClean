@@ -86,6 +86,7 @@ const testimonials: Testimonial[] = [
 
 const logoAssetWhite = '/S&C Horiz White.png' as const
 const logoAssetBlue = '/S&C Horiz Blue.png' as const
+const logoAssetWhiteTxtBlueLogo = '/S&C Horiz White txt Blue Logo.png' as const
 const logoIcon = '/House with circle and leaf.png' as const
 const heroImage = '/Hero.jpg' as const
 const bioImage = '/AndieDevon.jpg' as const
@@ -226,7 +227,7 @@ function App() {
     <div className="site-shell">
       <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''} ${isMobileMenuOpen ? 'nav-mobile-open' : ''}`}>
         <div className="logo">
-          <img src={isScrolled ? logoAssetBlue : logoAssetWhite} alt="SimpleClean logo" loading="lazy" />
+          <img src={isScrolled ? logoAssetBlue : logoAssetWhiteTxtBlueLogo} alt="SimpleClean logo" loading="lazy" />
         </div>
         <button 
           className="hamburger"
