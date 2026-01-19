@@ -68,19 +68,14 @@ const stats = [
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Sarah M.',
-    location: 'Redding, CA',
-    quote: 'Andie and her team have been cleaning our home for over a year now. We love seeing the same friendly faces, and knowing our kids and dog are safe around the products they use. It\'s one less thing to worry about.',
+    name: 'Justine S.',
+    location: '',
+    quote: 'Andie is wonderful. She does an excellent job cleaning my home, leaving everything spotless and well cared for every time. Beyond her great work, she brings such a peaceful, safe, and calming presence—it\'s genuinely a pleasure having her in my space. I always feel comfortable when she\'s here, and I truly appreciate both her attention to detail and her positive energy. I highly recommend her.',
   },
   {
-    name: 'Michael & Jennifer T.',
-    location: 'Shasta Lake, CA',
-    quote: 'We\'ve tried other cleaning services before, but Simple & Clean is different. They actually listen to what we need and follow through every time. The communication is fantastic—we never feel left in the dark.',
-  },
-  {
-    name: 'Rachel K.',
-    location: 'Anderson, CA',
-    quote: 'As a busy mom of three, having Simple & Clean come weekly has been a game changer. They treat our home with such care and respect. I can\'t recommend them enough to other families.',
+    name: 'Erik J.',
+    location: '',
+    quote: 'Andie and her team have been wonderful! She\'s easy to communicate with and always shows up when she says she will. I love coming home to a clean home, it takes an important task off my plate. Very pleased with their work!',
   },
 ]
 
