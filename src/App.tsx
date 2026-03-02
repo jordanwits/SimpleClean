@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 
 // Services section temporarily removed
 // type Service = {
@@ -17,6 +18,7 @@ type Testimonial = {
   name: string
   location: string
   quote: string
+  fullQuote?: string
 }
 
 // Services section temporarily removed
@@ -77,6 +79,12 @@ const testimonials: Testimonial[] = [
     location: '',
     quote: 'Andie and her team have been wonderful! She\'s easy to communicate with and always shows up when she says she will. I love coming home to a clean home, it takes an important task off my plate. Very pleased with their work!',
   },
+  {
+    name: 'Tina Zeller',
+    location: '',
+    quote: 'I absolutely love Andie and her crew. They come every other week and clean most of my home, including the kitchen and bathrooms, and they always do an amazing job. Every time I walk in after they\'ve been here, my house feels clean, fresh, and so well cared for.',
+    fullQuote: "I absolutely love Andie and her crew. They come every other week and clean most of my home, including the kitchen and bathrooms, and they always do an amazing job. Every time I walk in after they've been here, my house feels clean, fresh, and so well cared for.\n\nOne of the things I appreciate most is that they use non-toxic cleaning products, which is really important to me. It makes such a difference knowing my home is clean without harsh chemicals.\n\nThey're also incredibly friendly, reliable, and easy to work with. Scheduling is simple, communication is great, and the quality is consistently excellent. I genuinely look forward to cleaning day and highly recommend them to anyone looking for a trustworthy, health-conscious cleaning service.",
+  },
 ]
 
 const logoAssetBlue = '/S&C Horiz Blue.png' as const
@@ -126,6 +134,7 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [reviewModal, setReviewModal] = useState<Testimonial | null>(null)
 
   // Refs for scroll animations
   const heroContentRef = useScrollAnimation<HTMLDivElement>()
@@ -183,6 +192,20 @@ function App() {
   const handleNavLinkClick = () => {
     setIsMobileMenuOpen(false)
   }
+
+  // Close review modal on Escape, lock body scroll when open
+  useEffect(() => {
+    if (!reviewModal) return
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setReviewModal(null)
+    }
+    document.addEventListener('keydown', handleEscape)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = ''
+    }
+  }, [reviewModal])
 
   // Handle contact form submission
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -411,9 +434,24 @@ function App() {
           </div>
           <div className="testimonials-grid">
             {testimonials.map((testimonial) => (
-              <article key={testimonial.name} className="testimonial-card">
+              <article
+                key={testimonial.name}
+                className={`testimonial-card ${testimonial.fullQuote ? 'testimonial-card-clickable' : ''}`}
+                onClick={() => testimonial.fullQuote && setReviewModal(testimonial)}
+                role={testimonial.fullQuote ? 'button' : undefined}
+                tabIndex={testimonial.fullQuote ? 0 : undefined}
+                onKeyDown={(e) => {
+                  if (testimonial.fullQuote && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault()
+                    setReviewModal(testimonial)
+                  }
+                }}
+              >
                 <div className="testimonial-quote-mark">"</div>
                 <p className="testimonial-quote">{testimonial.quote}</p>
+                {testimonial.fullQuote && (
+                  <span className="testimonial-read-more">Read full review</span>
+                )}
                 <div className="testimonial-meta">
                   <strong className="testimonial-name">{testimonial.name}</strong>
                   <span className="testimonial-location">{testimonial.location}</span>
@@ -422,6 +460,35 @@ function App() {
             ))}
           </div>
         </div>
+
+        {reviewModal && createPortal(
+          <div
+            className="review-modal-overlay"
+            onClick={() => setReviewModal(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Full review"
+          >
+            <div className="review-modal" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="review-modal-close"
+                onClick={() => setReviewModal(null)}
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <div className="review-modal-content">
+                <div className="testimonial-quote-mark">"</div>
+                <p className="review-modal-quote">{reviewModal.fullQuote}</p>
+                <div className="testimonial-meta">
+                  <strong className="testimonial-name">{reviewModal.name}</strong>
+                  <span className="testimonial-location">{reviewModal.location}</span>
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
       </section>
 
       <section className="contact-section scroll-animate" id="contact" ref={contactRef}>

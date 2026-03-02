@@ -1033,6 +1033,97 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
 }
 
+.testimonial-card-clickable {
+  cursor: pointer;
+}
+
+.testimonial-read-more {
+  color: var(--green-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: -0.5rem;
+}
+
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.review-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  position: relative;
+  padding: 2.5rem;
+  animation: modalSlideIn 0.25s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-medium);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.review-modal-close:hover {
+  color: var(--text-dark);
+}
+
+.review-modal-content {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.review-modal-content .testimonial-quote-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.review-modal-quote {
+  color: var(--text-medium);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin: 0 0 1.5rem;
+  font-style: italic;
+  white-space: pre-line;
+  padding-top: 2rem;
+}
+
 @media (max-width: 768px) {
   .testimonials-grid {
     grid-template-columns: 1fr;
@@ -1647,6 +1738,21 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 1300px) {
   .hamburger {
     display: flex;
+    width: 26px;
+    height: 26px;
+    gap: 4px;
+  }
+
+  .hamburger span {
+    height: 2.5px;
+  }
+
+  .nav-mobile-open .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .nav-mobile-open .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 
   .nav {
