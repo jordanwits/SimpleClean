@@ -80,7 +80,7 @@ const testimonials: Testimonial[] = [
     quote: 'Andie and her team have been wonderful! She\'s easy to communicate with and always shows up when she says she will. I love coming home to a clean home, it takes an important task off my plate. Very pleased with their work!',
   },
   {
-    name: 'Tina Zeller',
+    name: 'Tina Z.',
     location: '',
     quote: 'I absolutely love Andie and her crew. They come every other week and clean most of my home, including the kitchen and bathrooms, and they always do an amazing job. Every time I walk in after they\'ve been here, my house feels clean, fresh, and so well cared for.',
     fullQuote: "I absolutely love Andie and her crew. They come every other week and clean most of my home, including the kitchen and bathrooms, and they always do an amazing job. Every time I walk in after they've been here, my house feels clean, fresh, and so well cared for.\n\nOne of the things I appreciate most is that they use non-toxic cleaning products, which is really important to me. It makes such a difference knowing my home is clean without harsh chemicals.\n\nThey're also incredibly friendly, reliable, and easy to work with. Scheduling is simple, communication is great, and the quality is consistently excellent. I genuinely look forward to cleaning day and highly recommend them to anyone looking for a trustworthy, health-conscious cleaning service.",
